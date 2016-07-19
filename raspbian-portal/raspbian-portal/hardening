@@ -1,0 +1,15 @@
+sudo apt install unattended-upgrades
+
+# when it's done, replace /etc/apt/apt.conf.d/50unattended-upgrades 
+# with the following
+
+sudo cp 50unattended-upgrades /etc/apt/apt.conf.d/
+
+# add the auto-updating stuff
+sudo touch /etc/apt/apt.conf.d/20auto-upgrades
+cat > /etc/apt/apt.conf.d/20auto-upgrades << __PERIOD__
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+
+__PERIOD__
+
