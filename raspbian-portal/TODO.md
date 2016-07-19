@@ -20,3 +20,6 @@ Unattended-Upgrade::Origins-Pattern {
 APT::Periodic::Unattended-Upgrade "1";
 ```
 4. follow the rest of this https://www.linode.com/docs/security/securing-your-server/
+
+  a. create no-priv user used to update `/etc/wpa_supplicant/wpa_supplicant.conf`
+     if possible..
