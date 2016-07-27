@@ -13,3 +13,15 @@ APT::Periodic::Unattended-Upgrade "1";
 
 __PERIOD__
 
+
+# run this http://raspberrypi.stackexchange.com/a/23223
+# this will remove basically everything on Raspbian that isn't
+# directly related to the OS's operations
+# I can't currently ssh into the pi after running thi
+# and I don't think it has anything to do with me dropping forwarding in
+# /etc/sysctl.conf
+sudo apt-get install deborphan
+sudo apt-get autoremove --purge libx11-.* lxde-.* raspberrypi-artwork xkb-data omxplayer penguinspuzzle sgml-base xml-core alsa-.* cifs-.* samba-.* fonts-.* desktop-* gnome-.*
+sudo apt-get autoremove --purge $(deborphan)
+sudo apt-get autoremove --purge
+sudo apt-get autoclean
